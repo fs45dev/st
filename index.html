@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exclusão da ST em SP — Pesquisa por NCM, CEST e descrição</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topo">
+  <div class="wrap">
+    <p class="kicker">ICMS-ST · São Paulo · Portaria CAT 68/2019</p>
+    <h1>Exclusão da Substituição Tributária</h1>
+    <p class="sub">Consulte se um produto deixa (ou já deixou) o regime de ST em SP, pelo NCM, CEST ou descrição.</p>
+    <div class="busca">
+      <input id="q" type="search" autocomplete="off" spellcheck="false" autofocus
+             placeholder="Ex.: 3004.90.99 · 13.001.00 · pneu · água sanitária" aria-label="Pesquisar">
+      <kbd title="Atalho">/</kbd>
+    </div>
+    <div class="filtros">
+      <select id="seg" aria-label="Segmento"><option value="">Todos os segmentos</option></select>
+      <select id="sit" aria-label="Situação">
+        <option value="">Todas as situações</option>
+        <option value="vig">Já excluídos (vigentes)</option>
+        <option value="fut">A vigorar</option>
+      </select>
+      <button id="limpar" class="btn ghost" type="button">Limpar</button>
+      <button id="csv" class="btn" type="button">Exportar CSV</button>
+    </div>
+    <div id="linha" class="linha" aria-label="Filtrar por data de vigência"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="aviso" class="aviso" hidden></div>
+  <p id="resumo" class="resumo" aria-live="polite"></p>
+  <div class="tabela" role="table" aria-label="Resultados">
+    <div class="th" role="row">
+      <span role="columnheader">Vigência</span><span role="columnheader">CEST</span>
+      <span role="columnheader">NCM/SH</span><span role="columnheader">Descrição</span>
+    </div>
+    <div id="lista"></div>
+  </div>
+  <button id="mais" class="btn mais" type="button" hidden>Mostrar mais</button>
+</main>
+
+<footer class="wrap rodape">
+  <p id="fonte"></p>
+  <p>Ferramenta de apoio. A exclusão depende de NCM <strong>e</strong> CEST compatíveis com a descrição e suas exceções; confirme sempre na legislação (Portaria CAT 68/2019 e RICMS/SP) antes de alterar a tributação.</p>
+</footer>
+<script src="dados-st.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
